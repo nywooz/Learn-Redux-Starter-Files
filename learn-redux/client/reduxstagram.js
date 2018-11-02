@@ -7,8 +7,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import css from "./styles/style.styl";
 
 import Main from "./components/Main";
-import PhotoGrid from "./components/PhotoGrid";
 import Single from "./components/Single";
+import PhotoGrid from "./components/PhotoGrid";
 
 function App() {
   return (

@@ -11,6 +11,10 @@ const Main = React.createClass({
         <h1>
           <Link to="/">Reduxstagram</Link>
         </h1>
+        <p>
+          {" "}
+          <Link to="/view/:postId">single grid</Link>
+        </p>
       </div>
     );
   }
