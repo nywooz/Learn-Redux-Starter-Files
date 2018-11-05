@@ -8,22 +8,16 @@ import store, { history } from "./store";
 // import css
 import css from "./styles/style.styl";
 
-import Main from "./components/Main";
-import Single from "./components/Single";
-import PhotoGrid from "./components/PhotoGrid";
+import App from "./components/App";
 
-function App() {
+function Main() {
   return (
     <Provider store={store}>
       <Router history={history}>
-        <div>
-          <Main />
-          <Route exact path="/" component={PhotoGrid} />
-          <Route path="/view/:postId" component={Single} />
-        </div>
+        <App />
       </Router>
     </Provider>
   );
 }
 
-render(<App />, document.getElementById("root"));
+render(<Main />, document.getElementById("root"));

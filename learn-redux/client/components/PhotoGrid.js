@@ -1,13 +1,20 @@
 import React from "react";
+import store from "../store";
+import Photo from "./Photo";
 
 const PhotoGrid = React.createClass({
   render() {
+    const posts = store.getState().posts;
+    const comments = store.getState().comments;
     return (
       <div className="photo-grid">
         <p>Im photogrid</p>
-        <p>
-          <button>Go To photo</button>
-        </p>
+
+        {posts.map((post, i) => {
+          return (
+            <Photo key={i} i={i} {...post} comments={comments} store={store} />
+          );
+        })}
       </div>
     );
   }
