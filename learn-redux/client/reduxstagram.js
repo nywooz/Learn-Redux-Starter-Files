@@ -1,7 +1,9 @@
 // let's go!
 import React from "react";
 import { render } from "react-dom";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import store, { history } from "./store";
 
 // import css
 import css from "./styles/style.styl";
@@ -12,13 +14,15 @@ import PhotoGrid from "./components/PhotoGrid";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div>
-        <Main />
-        <Route exact path="/" component={PhotoGrid} />
-        <Route path="/view/:postId" component={Single} />
-      </div>
-    </BrowserRouter>
+    <Provider store={store}>
+      <Router history={history}>
+        <div>
+          <Main />
+          <Route exact path="/" component={PhotoGrid} />
+          <Route path="/view/:postId" component={Single} />
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
