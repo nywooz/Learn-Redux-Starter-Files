@@ -16,6 +16,16 @@ const defaultState = {
 
 const store = createStore(rootReducer, defaultState);
 export const history = syncHistoryWithStore(createBrowserHistory(), store);
+// check if module is hot
+if (module.hot) {
+  // grab it, use require becaue inside a function.
+  // Import does not wrk insidfe fn.
+  module.hot.accept("./reducers", () => {
+    // .default at the end because we using commonJS syntax
+    const nextRootReducer = require("./reducers/index").default;
+    store.replaceReducer(nextRootReducer);
+  });
+}
 
 export default store;
 

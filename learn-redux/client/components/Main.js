@@ -15,9 +15,7 @@ const Main = React.createClass({
         <h1>
           <Link to="/">Reduxstagram</Link>
         </h1>
-        <p>
-          <Link to="/view/:postId">single grid</Link>
-        </p>
+
         <Switch>
           <Route exact path="/" component={PhotoGrid} />
           <Route path="/view/:postId" component={Single} />
