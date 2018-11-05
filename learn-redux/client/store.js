@@ -14,7 +14,14 @@ const defaultState = {
   comments
 };
 
-const store = createStore(rootReducer, defaultState);
+// Setting up Redux Devttools
+//
+const enhancers = compose(
+  //  "f => f" return the store itself
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+);
+
+const store = createStore(rootReducer, defaultState, enhancers);
 export const history = syncHistoryWithStore(createBrowserHistory(), store);
 // check if module is hot
 if (module.hot) {
