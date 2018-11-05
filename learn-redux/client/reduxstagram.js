@@ -1,7 +1,7 @@
 // let's go!
 import React from "react";
 import { render } from "react-dom";
-import { BrowserRouter, Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Router, withRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store, { history } from "./store";
 
@@ -10,14 +10,14 @@ import css from "./styles/style.styl";
 
 import App from "./components/App";
 
-function Main() {
+const Main = () => {
   return (
     <Provider store={store}>
-      <Router history={history}>
+      <BrowserRouter>
         <App />
-      </Router>
+      </BrowserRouter>
     </Provider>
   );
-}
+};
 
 render(<Main />, document.getElementById("root"));

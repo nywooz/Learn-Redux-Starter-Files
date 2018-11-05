@@ -10,7 +10,6 @@ import PhotoGrid from "./PhotoGrid";
 
 const Main = React.createClass({
   render() {
-
     return (
       <div>
         <h1>
@@ -19,8 +18,10 @@ const Main = React.createClass({
         <p>
           <Link to="/view/:postId">single grid</Link>
         </p>
-        <Route exact path="/" component={PhotoGrid} />
-        <Route path="/view/:postId" component={Single} />
+        <Switch>
+          <Route exact path="/" component={PhotoGrid} />
+          <Route path="/view/:postId" component={Single} />
+        </Switch>
       </div>
     );
   }
